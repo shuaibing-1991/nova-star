@@ -11,7 +11,7 @@ import { useEngineStore } from '@/stores/engine'
 
 const SLOT_KEY_PREFIX = 'nova_save_slot_'
 const META_KEY = 'nova_save_meta'
-const AUTO_SAVE_SLOT = 0
+export const AUTO_SAVE_SLOT = 0
 const TOTAL_SLOTS = 5
 
 /** 存档错误类型 */
@@ -268,7 +268,7 @@ export function loadFromSlot(slot: number): RestoreResult {
   }
 
   // 版本迁移
-  return { success: true, data: migrate(wrapped.data, wrapped.version) }
+  return { success: true, data: migrate(wrapped.data, wrapped.version) } as any
 }
 
 /**
@@ -294,7 +294,7 @@ export function autoSave(reason: string = 'auto'): boolean {
     console.info('[auto-save]', reason, 'day', data.progress.currentDay)
   }
   if (!result.success) {
-    console.warn('[auto-save] failed', result.error)
+    console.warn('[auto-save] failed', (result as any).error)
   }
   return result.success
 }
@@ -306,7 +306,7 @@ export function manualSave(slot: number): boolean {
   const data = useGameStore.getState().exportSave()
   const result = saveToSlot(slot, data)
   if (!result.success) {
-    console.error('[manual-save] failed', result.error)
+    console.error('[manual-save] failed', (result as any).error)
   }
   return result.success
 }
@@ -330,7 +330,7 @@ export function restoreFromSlot(slot: number): RestoreResult {
   // 1. 先读取并校验存档完整性
   const result = loadFromSlot(slot)
   if (!result.success) return result
-  const data = result.data
+  const data = (result as any).data
 
   // 2. 校验存档中的关键字段
   if (!data.artist || !data.stats || !data.progress) {

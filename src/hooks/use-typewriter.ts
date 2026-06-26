@@ -47,7 +47,7 @@ export function useTypewriter(
   // 阶段 7 Round 4 优化：用 rAF id 替代 setTimeout id
   const rafRef = useRef<number | null>(null)
   // 兜底：用 setTimeout id（rAF 不可用时）
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null = null)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   // 保持 onComplete ref 最新
   useEffect(() => {

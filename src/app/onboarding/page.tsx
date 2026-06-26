@@ -23,10 +23,10 @@ import { Slider } from '@/components/ui/slider'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { useGameStore } from '@/stores/game'
-import { defaultClientConfig } from '@/config/client'
+import { getClientConfig } from '@/config/client'
 import { cn } from '@/lib/utils'
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
-import type { ArtistProfile } from '@/types'
+import type { ArtistProfile, Stats } from '@/types'
 
 const TOTAL_STEPS = 6
 const VIBE_OPTIONS = [
@@ -81,7 +81,7 @@ const ROUTE_OPTIONS = [
   {
     value: 'girl-group' as const,
     label: '女团出道',
-    desc: defaultClientConfig.content.groupName,
+    desc: getClientConfig().content.groupName,
     detail: '5 人女团，强调协作与化学反应',
   },
   {
@@ -186,7 +186,7 @@ export default function OnboardingPage() {
 
   // 自动从 customer config 初始化未设置字段
   React.useEffect(() => {
-    if (!artist.fanName || artist.fanName === defaultClientConfig.content.fanName) {
+    if (!artist.fanName || artist.fanName === getClientConfig().content.fanName) {
       // 仅在首次进入时初始化（如果用户还没改）
     }
   }, [artist.fanName])
@@ -258,7 +258,7 @@ export default function OnboardingPage() {
                 artist={artist}
                 setArtist={setArtist}
                 screenPresence={stats.screenPresence}
-                setStat={setStat}
+                setStat={setStat as (key: keyof Stats, value: number) => void}
               />
             )}
             {step === 5 && (

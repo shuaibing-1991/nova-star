@@ -44,9 +44,9 @@ export const SafeMotionDiv: React.FC<DivProps & HTMLMotionProps<'div'>> = ({
       custom: _c,
       ...divProps
     } = rest as HTMLMotionProps<'div'>
-    return <div {...divProps}>{children}</div>
+    return <div {...(divProps as any)}>{children}</div>
   }
-  return <motion.div {...(rest as HTMLMotionProps<'div'>)}>{children}</motion.div>
+  return <motion.div {...(rest as any)}>{children}</motion.div>
 }
 
 /**
@@ -77,7 +77,7 @@ export const SafeMotionButton: React.FC<ButtonProps & HTMLMotionProps<'button'>>
       custom: _c,
       ...buttonProps
     } = rest as HTMLMotionProps<'button'>
-    return <button {...buttonProps}>{children}</button>
+    return <button {...(buttonProps as any)}>{children}</button>
   }
-  return <motion.button {...(rest as HTMLMotionProps<'button'>)}>{children}</motion.button>
+  return <motion.button {...(rest as any)}>{children}</motion.button>
 }

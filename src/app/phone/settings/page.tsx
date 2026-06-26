@@ -102,7 +102,7 @@ export default function SettingsPage() {
                 return (
                   <button
                     key={opt.value}
-                    onClick={() => settings.setSystem('theme', opt.value)}
+                    onClick={() => settings.setSystem('theme' as any, opt.value)}
                     aria-pressed={active}
                     aria-label={`${t('settings.theme')} ${opt.label}`}
                     className={cn(

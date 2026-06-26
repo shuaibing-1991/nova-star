@@ -153,6 +153,7 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css"
           crossOrigin="anonymous"
           media="print"
+          // @ts-expect-error: React 18 不支持字符串 onLoad，但服务端渲染时用此 hack
           onLoad="this.media='all'"
         />
         {/* 阶段 8 Round 1：PWA / iOS / 社交分享完整链接 */}

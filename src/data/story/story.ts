@@ -38,6 +38,9 @@ const CORE_SCENES: SceneRegistry = {
   ...day7Scenes,
 }
 
+/** 全部静态场景（day 1-7）— 兼容旧 API */
+export const ALL_SCENES: SceneRegistry = CORE_SCENES
+
 /** 按 day 分组的核心场景 ID（day 1-7） */
 const CORE_SCENES_BY_DAY: Record<number, string[]> = {
   1: Object.keys(day1Scenes),
@@ -122,8 +125,8 @@ async function getLateScenesByDay(day: number): Promise<string[]> {
   // 通过模块的 lateScenesCache 间接获取
   // 这里用 dayN 起始 scene id 约定：`day{N}_morning` / `day{N}_opening` / `opening_intro`
   // 简化：扫描 lateScenesCache
-  const { lateScenesCache } = await import('./story-late')
-  void lateScenesCache
+  const lateModule = (await import('./story-late')) as any
+  void lateModule.lateScenesCache
   // 兜底：返回 0 长度，调用方用 getScene(id) 单独拿
   return []
 }

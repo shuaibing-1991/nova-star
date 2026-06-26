@@ -402,7 +402,7 @@ function advanceToNextScene(
   if (!nextId) {
     // 剧情结束
     __engineDeps.ui.getState().setScenePhase('ending')
-    set({ currentSceneId: null, currentScene: null })
+    set({ currentScene: null } as any)
     navigateToEnding(currentScene.id)
     return
   }

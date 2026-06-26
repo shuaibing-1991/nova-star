@@ -20,8 +20,7 @@
     "analyze": "ANALYZE=true next build",
     "docker:build": "docker build -t nova-star:latest .",
     "docker:run": "docker run --rm -p 3000:3000 nova-star:latest",
-    "prepare": "husky install",
-    "postinstall": "prisma generate || true"
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -74,8 +73,7 @@
     "jsdom": "^24.1.1",
     "@playwright/test": "^1.45.3",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
-    "@types/js-sha256": "^0.4.2"
+    "lint-staged": "^15.2.7"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -87,8 +85,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.18.0",
-    "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@9.5.0"
+    "node": ">=18.18.0"
+  }
 }

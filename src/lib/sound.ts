@@ -208,7 +208,7 @@ export function getSoundEngine(): SoundEngine {
       setEnabled: () => {},
       play: () => {},
       destroy: () => {},
-    } as SoundEngine
+    } as unknown as SoundEngine
   }
   if (!engineInstance) {
     engineInstance = new SoundEngine()

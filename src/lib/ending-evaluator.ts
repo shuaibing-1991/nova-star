@@ -4,7 +4,7 @@
  * Day 30 收尾时调用，根据数值 + 关系 + flag 决定 4 个结局之一
  * 详见 [[../../../01-产品PRD#6.20 模块 9：结局系统]]
  */
-import type { GameState, Stats } from '@/types'
+import type { Stats } from '@/types'
 
 export type EndingType = 'success' | 'neutral' | 'failure' | 'hidden'
 
@@ -40,8 +40,8 @@ const FIVE_CORE_NPCS = [
 /**
  * 检查红线 flag
  */
-export function hasRedLineFlag(state: GameState): boolean {
-  return state.progress.storyFlags.some((f) =>
+export function hasRedLineFlag(state: any): boolean {
+  return state.progress.storyFlags.some((f: string) =>
     RED_LINE_PREFIXES.some((p) => f === p || f.startsWith(p + ':'))
   )
 }
@@ -55,7 +55,7 @@ export function hasRedLineFlag(state: GameState): boolean {
  * 3. showcase_score ≥ 75
  * 4. 完成 Day 25（剧情推进标记 `day25_complete`）
  */
-export function checkHiddenEndingConditions(state: GameState): boolean {
+export function checkHiddenEndingConditions(state: any): boolean {
   // 1. 5 个 NPC 好感 ≥ 80
   const allAffectionOK = FIVE_CORE_NPCS.every((id) => {
     const r = state.relationships[id]
@@ -88,7 +88,7 @@ export function checkHiddenEndingConditions(state: GameState): boolean {
  * 3. mood ≥ 70
  * 4. 无红线 flag
  */
-export function checkSuccessEndingConditions(state: GameState): boolean {
+export function checkSuccessEndingConditions(state: any): boolean {
   const score = computeShowcaseScore(state.stats)
   if (score < 80) return false
   if (state.stats.followers < 30_000) return false
@@ -105,7 +105,7 @@ export function checkSuccessEndingConditions(state: GameState): boolean {
  * 3. mood < 20
  * 4. 红线 flag
  */
-export function checkFailureEndingConditions(state: GameState): boolean {
+export function checkFailureEndingConditions(state: any): boolean {
   const score = computeShowcaseScore(state.stats)
   if (score < 60) return true
   if (state.stats.followers < 5_000) return true
@@ -123,7 +123,7 @@ export function checkFailureEndingConditions(state: GameState): boolean {
  * 3. 成功结局（全部达标）
  * 4. 中等结局（兜底）
  */
-export function evaluateEnding(state: GameState): EndingType {
+export function evaluateEnding(state: any): EndingType {
   // 1. 隐藏结局
   if (checkHiddenEndingConditions(state)) return 'hidden'
 

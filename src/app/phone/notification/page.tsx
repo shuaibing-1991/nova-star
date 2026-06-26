@@ -222,7 +222,7 @@ export default function NotificationPage() {
           {items.map((item, idx) => (
             <NotificationCard
               key={item.id}
-              item={item}
+              item={item as NotificationItem}
               expanded={expandedId === item.id}
               onToggle={() => handleToggle(item.id)}
               day={progress.currentDay}

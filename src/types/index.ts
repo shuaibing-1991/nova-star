@@ -158,6 +158,8 @@ export type Condition =
 
 export interface SceneEffect {
   setFlags?: string[]
+  /** @deprecated use setFlags (plural). Kept for backward compat with day*.ts files. */
+  setFlag?: string
   modifyStats?: Partial<Stats>
   /**
    * 关系变化：key 是目标 NPC ID，value 是 NPCRelationship 的增量

@@ -13,7 +13,7 @@ import type {
   Message,
   DayActivityLog,
 } from '@/types'
-import { defaultClientConfig } from '@/config/client'
+import { getClientConfig } from '@/config/client'
 import { SAVE_VERSION } from '@/config/version'
 import { NPCS } from '@/data/npcs'
 import { getAchievement } from '@/data/achievements'
@@ -40,14 +40,14 @@ export const DAILY_INITIAL_ENERGY = 80
 
 /** 默认艺人人设 */
 const defaultArtist: ArtistProfile = {
-  name: defaultClientConfig.content.artistName,
+  name: getClientConfig().content.artistName,
   vibe: 'fresh',
   height: 168,
   position: 'vocal',
   persona: 'gentle',
   romance: 'none',
-  fanName: defaultClientConfig.content.fanName,
-  fanColor: defaultClientConfig.content.fanColor,
+  fanName: getClientConfig().content.fanName,
+  fanColor: getClientConfig().content.fanColor,
   route: 'girl-group',
 }
 
@@ -161,7 +161,7 @@ export const useGameStore = create<GameState>()(
       set((state) => {
         if (key === 'screenPresence') {
           return {
-            stats: { ...state.stats, screenPresence: value as 'high' | 'medium' | 'low' },
+            stats: { ...state.stats, screenPresence: value as unknown as 'high' | 'medium' | 'low' },
           }
         }
         // 不同数值有不同范围

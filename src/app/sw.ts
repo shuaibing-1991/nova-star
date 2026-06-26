@@ -9,9 +9,10 @@
  * - skipWaiting 改为 false（配合 UI 提示）
  * - 加 navigationpreload 监听
  */
+/// <reference lib="webworker" />
 import { defaultCache } from '@serwist/next/worker'
 import type { PrecacheEntry, SerwistGlobalConfig } from 'serwist'
-import { Serwist } from 'serwist'
+import { CacheFirst, Serwist } from 'serwist'
 
 // 阶段 8 Round 2：缓存版本号
 // 升级时 bump v1 → v2，activate 阶段会清理旧版本
@@ -36,25 +37,17 @@ const serwist = new Serwist({
     // 自定义缓存策略
     {
       matcher: ({ request }) => request.destination === 'image',
-      handler: 'CacheFirst',
-      options: {
+      handler: new CacheFirst({
         cacheName: `nova-star-images-${CACHE_VERSION}`,
-        expiration: {
-          maxEntries: 60,
-          maxAgeSeconds: 60 * 60 * 24 * 30, // 30 天
-        },
-      },
+        plugins: [],
+      }),
     },
     {
       matcher: ({ request }) => request.destination === 'font',
-      handler: 'CacheFirst',
-      options: {
+      handler: new CacheFirst({
         cacheName: `nova-star-fonts-${CACHE_VERSION}`,
-        expiration: {
-          maxEntries: 30,
-          maxAgeSeconds: 60 * 60 * 24 * 365, // 1 年
-        },
-      },
+        plugins: [],
+      }),
     },
     // 阶段 8 Round 2：删除 /scenes/ 和 /api/ 死代码
     // 故事数据是 JS bundle（由 precache 处理），无 /api/ 后端

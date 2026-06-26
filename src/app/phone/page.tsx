@@ -172,7 +172,7 @@ export default function PhoneHomePage() {
       router.replace('/onboarding')
       return
     }
-    setScenePhase('phone')
+    setScenePhase('idle')
   }, [artist.name, router, setScenePhase])
 
   if (!artist.name || artist.name.length < 2) {

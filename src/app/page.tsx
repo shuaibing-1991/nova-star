@@ -117,6 +117,7 @@ export default function HomePage() {
     }
 
     const current = SCRIPT[paragraphIndex]
+    if (!current) return
     if (lineIndex < current.lines.length) {
       const t = setTimeout(() => {
         setLineIndex((i) => i + 1)
@@ -176,6 +177,7 @@ export default function HomePage() {
   }> = []
   for (let p = 0; p <= paragraphIndex && p < SCRIPT.length; p++) {
     const para = SCRIPT[p]
+    if (!para) continue
     const linesToShow = p === paragraphIndex ? lineIndex : para.lines.length
     for (let l = 0; l < linesToShow; l++) {
       visibleLines.push({

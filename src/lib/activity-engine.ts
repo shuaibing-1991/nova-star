@@ -100,8 +100,8 @@ export function performActivity(
     const statKey = key as keyof Stats
     const beforeVal = state.stats[statKey] as number
     const afterVal = Math.max(0, beforeVal + delta)
-    before[statKey] = beforeVal as any
-    after[statKey] = afterVal as any
+    ;(before as any)[statKey] = beforeVal
+    ;(after as any)[statKey] = afterVal
     changes.push({ key: statKey, delta, before: beforeVal, after: afterVal })
   }
 
