@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- NOVA STAR 默认 logo（粉色星形） -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB6C1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8898;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- 五角星 -->
+  <path
+    d="M100 20 L122 78 L184 78 L134 116 L154 174 L100 138 L46 174 L66 116 L16 78 L78 78 Z"
+    fill="url(#grad)"
+    stroke="#FFFFFF"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <!-- NOVA 文字 -->
+  <text x="100" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#FF8898">NOVA</text>
+</svg>

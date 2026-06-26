@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- 阶段 8 Round 1 修复：PWA 占位图标（SVG 矢量源图） -->
+  <!-- 设计要点：
+       1. 主色 #FFB6C1（樱粉）
+       2. 辅助色 #B8C5D6（雾蓝）
+       3. Logo 元素：星星 + 麦克风
+       4. 风格：温柔、梦幻
+  -->
+
+  <defs>
+    <!-- 渐变背景 -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB6C1"/>
+      <stop offset="50%" stop-color="#B8C5D6"/>
+      <stop offset="100%" stop-color="#E8DCC4"/>
+    </linearGradient>
+
+    <!-- 麦克风金属渐变 -->
+    <linearGradient id="mic" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFE4E9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景圆角矩形（带 safe area） -->
+  <rect x="0" y="0" width="512" height="512" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- 内部圆形高光 -->
+  <circle cx="256" cy="256" r="180" fill="#FFFFFF" fill-opacity="0.15"/>
+
+  <!-- 星星（5 角）-->
+  <g transform="translate(256 256)">
+    <!-- 主星 -->
+    <path d="M 0,-90 L 22,-30 L 88,-30 L 36,8 L 56,68 L 0,32 L -56,68 L -36,8 L -88,-30 L -22,-30 Z"
+          fill="#FFFFFF"
+          stroke="#FF8898"
+          stroke-width="4"/>
+  </g>
+
+  <!-- 麦克风（横置在底部）-->
+  <g transform="translate(256 380)">
+    <!-- 麦克风头（圆形）-->
+    <circle cx="0" cy="0" r="32" fill="url(#mic)" stroke="#FF8898" stroke-width="3"/>
+    <!-- 麦克风网孔（点阵）-->
+    <circle cx="-10" cy="-8" r="2" fill="#FF8898"/>
+    <circle cx="0" cy="-8" r="2" fill="#FF8898"/>
+    <circle cx="10" cy="-8" r="2" fill="#FF8898"/>
+    <circle cx="-10" cy="8" r="2" fill="#FF8898"/>
+    <circle cx="0" cy="8" r="2" fill="#FF8898"/>
+    <circle cx="10" cy="8" r="2" fill="#FF8898"/>
+    <!-- 麦克风支架 -->
+    <rect x="-4" y="32" width="8" height="40" rx="2" fill="#FF8898"/>
+    <!-- 麦克风底座 -->
+    <rect x="-24" y="68" width="48" height="6" rx="3" fill="#FF8898"/>
+  </g>
+
+  <!-- 装饰小星星 -->
+  <g fill="#FFFFFF">
+    <path d="M 110,110 L 116,124 L 130,124 L 119,134 L 123,148 L 110,138 L 97,148 L 101,134 L 90,124 L 104,124 Z"
+          transform="scale(0.6) translate(80 80)"/>
+    <path d="M 380,140 L 386,154 L 400,154 L 389,164 L 393,178 L 380,168 L 367,178 L 371,164 L 360,154 L 374,154 Z"
+          transform="scale(0.5) translate(220 100)"/>
+  </g>
+</svg>

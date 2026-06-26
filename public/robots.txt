@@ -1,0 +1,9 @@
+# 阶段 8 Round 1：robots.txt 由 src/app/robots.ts 动态生成
+# 此文件作为占位，实际部署时 Next.js 会用动态生成的版本覆盖
+# 详见 https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: /sitemap.xml

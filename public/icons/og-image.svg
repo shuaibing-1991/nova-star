@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- 阶段 8 Round 1 修复：OG 社交分享卡片（1200x630） -->
+
+  <defs>
+    <linearGradient id="ogbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB6C1"/>
+      <stop offset="50%" stop-color="#B8C5D6"/>
+      <stop offset="100%" stop-color="#E8DCC4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景渐变 -->
+  <rect width="1200" height="630" fill="url(#ogbg)"/>
+
+  <!-- 装饰圆形 -->
+  <circle cx="200" cy="500" r="180" fill="#FFFFFF" fill-opacity="0.1"/>
+  <circle cx="1000" cy="130" r="200" fill="#FFFFFF" fill-opacity="0.1"/>
+
+  <!-- 主标题 -->
+  <text x="600" y="240" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-size="100" font-weight="900" fill="#FFFFFF" text-anchor="middle">
+    NOVA STAR
+  </text>
+
+  <!-- 副标题 -->
+  <text x="600" y="340" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-size="48" font-weight="500" fill="#FFFFFF" text-anchor="middle" fill-opacity="0.95">
+    新星计划 · 爱豆模拟器
+  </text>
+
+  <!-- 描述 -->
+  <text x="600" y="420" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-size="28" font-weight="400" fill="#FFFFFF" text-anchor="middle" fill-opacity="0.85">
+    一部虚拟工作手机 + 30 天出道前沉浸式人生体验
+  </text>
+
+  <!-- 装饰大星星 -->
+  <g transform="translate(960 380)">
+    <path d="M 0,-60 L 15,-20 L 60,-20 L 25,5 L 38,46 L 0,22 L -38,46 L -25,5 L -60,-20 L -15,-20 Z"
+          fill="#FFFFFF" fill-opacity="0.6"/>
+  </g>
+
+  <g transform="translate(220 200)">
+    <path d="M 0,-40 L 10,-13 L 40,-13 L 17,3 L 25,30 L 0,15 L -25,30 L -17,3 L -40,-13 L -10,-13 Z"
+          fill="#FFFFFF" fill-opacity="0.5"/>
+  </g>
+</svg>
